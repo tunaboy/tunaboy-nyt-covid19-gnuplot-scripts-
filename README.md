@@ -1,4 +1,5 @@
 # tunaboy-nyt-covid19-gnuplot-scripts-
+
 gnuplot (and associated awk) scripts to plot the New York Times covid19 database
 
 copy (or make a link) the us-counties.csv and us-states.csv files into the same directory, then plot the data with the commands:
@@ -18,3 +19,7 @@ copy (or make a link) the us-counties.csv and us-states.csv files into the same 
  This is a quick and dirty version, but I've been playing with it for a bit, and I'm really glad I live in Santa Clara CA (the default county) and California (the default state).
     
  I'll be getting better versions of these at some point, but wanted to get these up for others to use and possibly make improvements on.
+
+ NOTE: A different way to look at these is with logarithmic y axes.  You can easily switch between these by placing our mouse close to the left axis and hitting the lowercase 'l' key.  This should switch the y axes to logaritmic.  An uppercase 'L' will switch both x and y axes to log.  
+
+
