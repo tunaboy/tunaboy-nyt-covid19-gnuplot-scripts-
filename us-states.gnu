@@ -22,8 +22,8 @@ set style line  2 lt  2 dashtype 1 pt 6   lc rgb "#4A0000"    lw LW ps PS
 #set size ratio 1.6              # (10:16)
 
 # Landscape monitor
-set terminal qt size 1600,900
-set size ratio 0.6250           # (16:10)
+#set terminal qt size 1600,900
+#set size ratio 0.6250           # (16:10)
 
 #Where to put the legend for the graph
 set key left top box Left reverse  title KEY # width 3
@@ -39,8 +39,7 @@ set link y2 via y/YSCALE  inverse y*YSCALE
 set y2tics nomirror tc lt 2
 set ytics nomirror tc lt 1
 set y2label "Deaths"
-#set tc lt 2
-#plot "sqrt_data" using 1:2 axes x2y1, "linear_data" using 1:2 axes x1y1
+#set logscale y
 
 # Actually Plot the data
 plot "< awk -f us-states.awk FIPS=".FIPS." us-states.csv" every 1:1:0 u 1:2 ls 1 with points t "Cases"\
