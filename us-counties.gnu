@@ -2,7 +2,7 @@
 #  usage: gnuplot -e "FIPS=<value>" -e "XOFFSET=<value>" us-counties.gnu
 if (!exists("FIPS")) FIPS=6085  # FIPS of county to plot.  Remember, take off all leading zeros!  
 if (!exists("XOFFSET")) XOFFSET=7  #or change day offset of cases -> deaths, and "mortality rate" cases/deaths
-if (!exists("YSCALE")) YSCALE=10  # A scale factor to line up deaths and cases, roughly the mortality rate of deaths/confirmed cases.  
+if (!exists("YSCALE")) YSCALE=9.5  # A scale factor to line up deaths and cases, roughly the mortality rate of deaths/confirmed cases.  
 PS=1.25  # Point (symbol) size on chart.  1 is standard size
 LW=1.5   # Line Width on chart, 1 is standard line width
 
@@ -35,10 +35,16 @@ set xrange [:]
 set mxtics 5
 set mytics 5
 set yrange [:] 
+set link y2 via y/YSCALE  inverse y*YSCALE
+set y2tics nomirror tc lt 2
+set ytics nomirror tc lt 1
+set y2label "Deaths"
+#set tc lt 2
+#plot "sqrt_data" using 1:2 axes x2y1, "linear_data" using 1:2 axes x1y1
 
 # Actually Plot the data
-plot "< awk -f us-counties.awk FIPS=".FIPS." us-counties.csv" every 1:1:0 u 1:2 ls 1 with points t "Cases"\
-   , "< awk -f us-counties.awk FIPS=".FIPS." us-counties.csv" every 1:1:0 u ($1-XOFFSET):($3*YSCALE) ls 2 with lines t "Deaths/Mort"
+plot "< awk -f us-counties.awk FIPS=".FIPS." us-counties.csv" every 1:1:0 u 1:2 ls 1 with points t "Cases" axes x1y1\
+   , "< awk -f us-counties.awk FIPS=".FIPS." us-counties.csv" every 1:1:0 u ($1-XOFFSET):($3*YSCALE) ls 2 with lines t "Deaths/Mort" 
 
 # wait for the user to hit 'q' before leaving plot
 pause -1
