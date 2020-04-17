@@ -8,7 +8,7 @@ LW=1.5   # Line Width on chart, 1 is standard line width
 
 # Title for legend
 COUNTY="`awk -f county_FIPS2Name.awk us-counties.csv`"
-KEY=sprintf("%f Delay, Mort. Rate: %f: FIPS=%d, (%s)",XOFFSET,1./YSCALE,FIPS,COUNTY)
+KEY=sprintf("%f Delay, Mort. Rate: %f: FIPS=%d(%s)",XOFFSET,1./YSCALE,FIPS,COUNTY)
 
 # this sets the default label format to be in latex math mode...
 set format '%g'
