@@ -23,7 +23,7 @@ NR==1{
 
 }
 
-$3==FIPS && NR>1{
+$3==FIPS && NR==2{
     y = substr($1, 1, 4);
     m = substr($1, 6, 2);
     d = substr($1, 9, 2);
@@ -34,5 +34,20 @@ $3==FIPS && NR>1{
     death=$5;
 #    val = mktime(y " " m " " d " 00 00 00");
     print  CumDays[m-1]+d, cases, death
+#    print $1, y, m, d
+}
+$3==FIPS && NR>2{
+    y = substr($1, 1, 4);
+    m = substr($1, 6, 2);
+    d = substr($1, 9, 2);
+    date=$1;
+    state=$2;
+    fips=$3;
+    delta_cases=$4-cases
+    cases=$4;
+    delta_death=$5-death
+    death=$5;
+#    val = mktime(y " " m " " d " 00 00 00");
+    print  CumDays[m-1]+d, cases, death,delta_cases, delta_death
 #    print $1, y, m, d
 }

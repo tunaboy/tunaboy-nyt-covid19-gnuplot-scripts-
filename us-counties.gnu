@@ -33,13 +33,13 @@ set label 'Cases'               at graph 0.010,0.875
 # X axis (automatic range, 5 subtics between major ticks on axis)
 set xrange [:]
 set mxtics 5
-set mytics 5
 set yrange [:] 
+#set log y
+set ytics nomirror  tc lt 1
+set mytics 5 
 set link y2 via y/YSCALE  inverse y*YSCALE
 set y2tics nomirror tc lt 2
-set ytics nomirror tc lt 1
 set y2label "Deaths"
-#set logscale y
 
 # Actually Plot the data
 plot "< awk -f us-counties.awk FIPS=".FIPS." us-counties.csv" every 1:1:0 u 1:2 ls 1 with points t "Cases" axes x1y1\

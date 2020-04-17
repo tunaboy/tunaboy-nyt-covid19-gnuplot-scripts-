@@ -1,3 +1,6 @@
+END {
+   print county
+}
 BEGIN { 
    FIPS=6085
    FS = ","; 
@@ -34,7 +37,7 @@ $4==FIPS && NR==2{
     cases=$5;
     death=$6;
 #    val = mktime(y " " m " " d " 00 00 00");
-    print  CumDays[m-1]+d, cases, death
+#    print  CumDays[m-1]+d, cases, death
 #    print $1, y, m, d
 }
 $4==FIPS && NR>2{
@@ -50,6 +53,9 @@ $4==FIPS && NR>2{
     delta_death=$6-death
     death=$6;
 #    val = mktime(y " " m " " d " 00 00 00");
-    print  CumDays[m-1]+d, cases, death,delta_cases, delta_death
+#    print  CumDays[m-1]+d, cases, death,delta_cases, delta_death
+#    print  county
+    exit 0
+#    exit
 #    print $1, y, m, d
 }
