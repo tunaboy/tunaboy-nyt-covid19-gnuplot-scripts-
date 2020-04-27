@@ -7,11 +7,7 @@ PS=1.25  # Point (symbol) size on chart.  1 is standard size
 LW=1.5   # Line Width on chart, 1 is standard line width
 
 # Title for legend
-#COUNTY="`awk -f county_FIPS2Name.awk us-counties.csv`"
-#KEY=sprintf("%f Delay, Mort. Rate: %f: FIPS=%d(%s)",XOFFSET,1./YSCALE,FIPS,COUNTY)
-COMMAND=sprintf("awk -f county_FIPS2Name.awk FIPS=%d  us-counties.csv",FIPS);
-#print COMMAND
-COUNTY=system(COMMAND)
+COUNTY="`awk -f county_FIPS2Name.awk us-counties.csv`"
 KEY=sprintf("%f Delay, Mort. Rate: %f: FIPS=%d(%s)",XOFFSET,1./YSCALE,FIPS,COUNTY)
 
 # this sets the default label format to be in latex math mode...

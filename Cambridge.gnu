@@ -1,6 +1,6 @@
 # Parameters to play with to change plot look,  etc
 #  usage: gnuplot -e "FIPS=<value>" -e "XOFFSET=<value>" us-counties.gnu
-if (!exists("FIPS")) FIPS=6075  # FIPS of county to plot(SF here).  Remember, take off all leading zeros!  
+if (!exists("FIPS")) FIPS=25017  # FIPS of county(here Middlesex county Massachusetts) to plot.  Remember, take off all leading zeros!  
 if (!exists("XOFFSET")) XOFFSET=7  #or change day offset of cases -> deaths, and "mortality rate" cases/deaths
 if (!exists("YSCALE")) YSCALE=9.5  # A scale factor to line up deaths and cases, roughly the mortality rate of deaths/confirmed cases.  
 PS=1.25  # Point (symbol) size on chart.  1 is standard size
