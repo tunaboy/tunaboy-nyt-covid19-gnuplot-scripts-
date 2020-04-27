@@ -1,5 +1,7 @@
 # tunaboy-nyt-covid19-gnuplot-scripts-
 
+
+
 gnuplot (and associated awk) scripts to plot the New York Times covid19 database
 
 copy (or make a link) the us-counties.csv and us-states.csv files into the same directory, then plot the data with the commands:
@@ -22,4 +24,10 @@ copy (or make a link) the us-counties.csv and us-states.csv files into the same 
 
  NOTE: A different way to look at these is with logarithmic y axes.  You can easily switch between these by placing our mouse close to the left axis and hitting the lowercase 'l' key.  This should switch the y axes to logaritmic.  An uppercase 'L' will switch both x and y axes to log.  
 
+Additional notes:
 
+The *_new.gnu files plot the new cases and deaths in the same manner (where as the *.gnu is the cumulative totals).  No checks on sanity are done, and apparently some cases that were attributed to COVID19 were removed, possibly?  
+
+These are quick and dirty plots to check on areas I care about deeply.  I also need to remove the delay/mortality rate bits of this, (or at least make the delay be zero, so the deaths have the correct date (or make an x2 delayed axis on top, so the date can be read off that directly).
+
+Also, maybe change from days from start to actual dates (or have a new set of plots with the dates).  This is all nice things that I have to get back to my other tasks and my or may not get done.
